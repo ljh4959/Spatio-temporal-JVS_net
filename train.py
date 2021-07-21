@@ -18,7 +18,7 @@ import pkbar
 
 from ..net import JVSNet
 from ..data import MAGICDatasetZpad
-from ..data.loraks import MAGICDatasetLORAKS
+from ..data.loraks import DatasetLORAKS
 from ..utils import complex_abs
 
 
@@ -190,11 +190,11 @@ def main_worker(gpu, ngpus, args):
         val_dataset = MAGICDatasetZpad(args.val_file, **valtest_aug, verbosity=False)
         test_dataset = MAGICDatasetZpad(args.test_file, **valtest_aug, verbosity=False)
     else:
-        train_dataset = MAGICDatasetLORAKS(
+        train_dataset = DatasetLORAKS(
             args.train_file, **train_aug, verbosity=False
         )
-        val_dataset = MAGICDatasetLORAKS(args.val_file, **valtest_aug, verbosity=False)
-        test_dataset = MAGICDatasetLORAKS(
+        val_dataset = DatasetLORAKS(args.val_file, **valtest_aug, verbosity=False)
+        test_dataset = DatasetLORAKS(
             args.test_file, **valtest_aug, verbosity=False
         )
     train_sampler = DistributedSampler(train_dataset)
