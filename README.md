@@ -12,7 +12,7 @@ complex.py : 2D+t complex convolution function used in jvsnet.py
 
 eval.py : to test the network with the under-sampled in-vivo 3D mGRE data.
 
-jvsnet.py : JVS_net network.
+jvsnet.py : Spatio-temporal JVS_net.
 
 loraks.py : data setting for network training.
 
