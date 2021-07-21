@@ -6,7 +6,7 @@ The code includes the following files: main, train, eval, and model's network.
 
 
 # Usage
-__main__.py
+main.py
 
 complex.py : 2D+t complex convolution function used in jvsnet.py
 
