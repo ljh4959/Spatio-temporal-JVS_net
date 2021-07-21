@@ -17,7 +17,7 @@ import numpy as np
 import pkbar
 
 from ..net import JVSNet
-from ..data import MAGICDatasetZpad
+from ..data import DatasetZpad
 from ..data.loraks import DatasetLORAKS
 from ..utils import complex_abs
 
@@ -186,9 +186,9 @@ def main_worker(gpu, ngpus, args):
     # Data loading code
     if args.zpad:
         print("input is from Zero-Padding")
-        train_dataset = MAGICDatasetZpad(args.train_file, **train_aug, verbosity=False)
-        val_dataset = MAGICDatasetZpad(args.val_file, **valtest_aug, verbosity=False)
-        test_dataset = MAGICDatasetZpad(args.test_file, **valtest_aug, verbosity=False)
+        train_dataset = DatasetZpad(args.train_file, **train_aug, verbosity=False)
+        val_dataset = DatasetZpad(args.val_file, **valtest_aug, verbosity=False)
+        test_dataset = DatasetZpad(args.test_file, **valtest_aug, verbosity=False)
     else:
         train_dataset = DatasetLORAKS(
             args.train_file, **train_aug, verbosity=False
