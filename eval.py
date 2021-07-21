@@ -4,8 +4,8 @@ import torch
 from tqdm import tqdm
 from scipy.io import savemat
 
-from ..data import MAGICDatasetZpad
-from ..data.loraks import MAGICDatasetLORAKS
+from ..data import DatasetZpad
+from ..data.loraks import DatasetLORAKS
 from ..net import JVSNet
 
 
@@ -45,10 +45,10 @@ def main(args):
 
     if args.zpad:
         print("input is from Zero-Padding")
-        db_class = MAGICDatasetZpad
+        db_class = DatasetZpad
     else:
         print("input is from LORAKS")
-        db_class = MAGICDatasetLORAKS
+        db_class = DatasetLORAKS
 
     datasets = {
         Path(f).stem: db_class(f, **valtest_aug, verbosity=False)
